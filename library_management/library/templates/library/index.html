@@ -1,0 +1,34 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to the Library Management System</h1>
+    <p>This application helps librarians manage the library’s books, members, and transactions efficiently.</p>
+    
+    <div class="row">
+        <div class="col">
+            <h2>Books</h2>
+            <p>Manage the library's collection of books, including adding new books, updating existing records, and deleting books that are no longer in circulation.</p>
+            <a href="{% url 'manage_books' %}" class="btn btn-primary">Manage Books</a>
+        </div>
+        <div class="col">
+            <h2>Members</h2>
+            <p>Keep track of all library members. Add new members, update their information, and manage their outstanding debts.</p>
+            <a href="{% url 'manage_members' %}" class="btn btn-primary">Manage Members</a>
+        </div>
+        <div class="col">
+            <h2>Transactions</h2>
+            <p>Issue and return books for members, calculate rent fees, and track each member’s borrowing history.</p>
+            <a href="{% url 'manage_transactions' %}" class="btn btn-primary">Manage Transactions</a>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <h2>Search Books</h2>
+            <p>Search for books by title or author to quickly find the books in the library’s collection.</p>
+            <a href="{% url 'search_books' %}" class="btn btn-secondary">Search Books</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
