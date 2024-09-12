@@ -1,0 +1,45 @@
+<!-- templates/transaction_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Transactions - Library Management System{% endblock %}
+
+{% block content %}
+<h1>Transactions</h1>
+<a href="{% url 'transaction_add' %}" class="btn btn-primary mb-3">Issue Book</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Member</th>
+            <th>Issue Date</th>
+            <th>Return Date</th>
+            <th>Rent Fee</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.book.title }}</td>
+            <td>{{ transaction.member.name }}</td>
+            <td>{{ transaction.issue_date }}</td>
+            <td>{{ transaction.return_date|default_if_none:"Not returned" }}</td>
+            <td>{% if transaction.rent_fee %}KES {{ transaction.rent_fee }}{% else %}-{% endif %}</td>
+            <td>
+                {% if not transaction.return_date %}
+                <form method="post" action="{% url 'return_book' transaction.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-outline-primary">Return Book</button>
+                </form>
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No transactions recorded.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!-- templates/member_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Members - Library Management System{% endblock %}
+
+{% block content %}
+<h1>Members</h1>
+<a href="{% url 'member_add' %}" class="btn btn-primary mb-3">Add New Member</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Outstanding Debt</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.name }}</td>
+            <td>{{ member.email }}</td>
+            <td>KES {{ member.outstanding_debt }}</td>
+            <td>
+                <a href="{% url 'member_edit' member.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No members registered.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

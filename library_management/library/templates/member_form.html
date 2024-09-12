@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    {% if form.instance.pk %}
+                        <h2>Update Member</h2>
+                    {% else %}
+                        <h2>Add New Member</h2>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="{{ form.name.id_for_label }}">Name:</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">Email:</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.phone_number.id_for_label }}">Phone Number:</label>
+                            {{ form.phone_number }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.address.id_for_label }}">Address:</label>
+                            {{ form.address }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.membership_date.id_for_label }}">Membership Date:</label>
+                            {{ form.membership_date }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.outstanding_debt.id_for_label }}">Outstanding Debt:</label>
+                            {{ form.outstanding_debt }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            {% if form.instance.pk %}
+                                Update Member
+                            {% else %}
+                                Add Member
+                            {% endif %}
+                        </button>
+                        <a href="{% url 'member_list' %}" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,107 @@
+/* static/css/style.css */
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #ecf0f1;
+    --text-color: #34495e;
+    --danger-color: #e74c3c;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  
+  .navbar {
+    background-color: var(--primary-color) !important;
+  }
+  
+  .navbar-brand, .nav-link {
+    color: black !important;
+  }
+  
+  .container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  h1 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+  
+  .btn-success {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+  }
+  
+  .btn-success:hover {
+    background-color: #27ae60;
+    border-color: #27ae60;
+  }
+  
+  .btn-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+  }
+  
+  .btn-danger:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
+  }
+  
+  .table {
+    background-color: white;
+  }
+  
+  .table thead {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+  }
+  
+  .alert {
+    margin-top: 20px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .badge {
+    font-size: 0.9em;
+  }
+  
+  .badge-success {
+    background-color: var(--secondary-color);
+  }
+  
+  .badge-danger {
+    background-color: var(--danger-color);
+  }
