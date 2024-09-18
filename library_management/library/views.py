@@ -85,8 +85,11 @@ def transaction_create(request):
     if request.method == 'POST':
         form = TransactionForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Transaction added successfully.')
+            transaction = form.save(commit=False)
+            transaction.return_date = None  # Not returned yet
+            transaction.rent_fee = None  # Will be calculated when returned
+            transaction.save()
+            messages.success(request, 'Book issued successfully.')
             return redirect('transaction_list')
     else:
         form = TransactionForm()
