@@ -10,9 +10,9 @@ class BookForm(forms.ModelForm):
 class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
-        fields = ['name', 'email']
+        fields = ['name', 'email', 'phone_number', 'membership_date', 'outstanding_debt']
 
 class TransactionForm(forms.ModelForm):
     class Meta:
         model = Transaction
-        fields = ['book', 'member']
+        fields = ['book', 'member', 'issue_date', 'rent_fee']
